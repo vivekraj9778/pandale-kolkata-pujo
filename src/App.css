@@ -1,0 +1,406 @@
+/* ============================================================
+   PANDALÉ - KOLKATA PUJO GUIDE
+   Global Application Styles
+============================================================ */
+
+/* ============================================================
+   ROOT VARIABLES
+============================================================ */
+
+:root {
+  --bg-main: #0d080a;
+  --bg-secondary: #130c0f;
+  --bg-card: #171014;
+
+  --accent: #ff2d20;
+  --accent-hover: #f1261c;
+  --accent-orange: #f59e0b;
+
+  --text-main: #ffffff;
+  --text-secondary: #a8a0a2;
+  --text-muted: #6f686b;
+
+  --border: rgba(255, 255, 255, 0.08);
+
+  --glass-bg: rgba(23, 16, 20, 0.82);
+
+  --shadow:
+    0 15px 45px rgba(0, 0, 0, 0.35);
+
+  --shadow-red:
+    0 10px 35px rgba(255, 45, 32, 0.18);
+}
+
+
+/* ============================================================
+   GLOBAL
+============================================================ */
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+
+  background:
+    radial-gradient(
+      circle at 50% -10%,
+      rgba(255, 45, 32, 0.08),
+      transparent 38%
+    ),
+    linear-gradient(
+      180deg,
+      #10090b 0%,
+      #0d080a 45%,
+      #090607 100%
+    );
+
+  color: var(--text-main);
+
+  font-family:
+    Inter,
+    ui-sans-serif,
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    sans-serif;
+
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+
+/* ============================================================
+   ROOT APP
+============================================================ */
+
+#root {
+  min-height: 100vh;
+  width: 100%;
+}
+
+
+/* ============================================================
+   SELECTION
+============================================================ */
+
+::selection {
+  background: rgba(255, 45, 32, 0.8);
+  color: white;
+}
+
+
+/* ============================================================
+   SCROLLBAR
+============================================================ */
+
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #0c0709;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #3a2428;
+  border-radius: 999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #5b3036;
+}
+
+
+/* Hide scrollbar for horizontal filter rows */
+
+.scrollbar-none {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.scrollbar-none::-webkit-scrollbar {
+  display: none;
+}
+
+
+/* ============================================================
+   GLASS NAVBAR
+============================================================ */
+
+.glass-nav {
+  background:
+    linear-gradient(
+      180deg,
+      rgba(25, 17, 20, 0.94),
+      rgba(16, 10, 12, 0.88)
+    );
+
+  backdrop-filter: blur(22px);
+  -webkit-backdrop-filter: blur(22px);
+
+  box-shadow:
+    0 10px 35px rgba(0, 0, 0, 0.35);
+}
+
+
+/* ============================================================
+   GLASS CARD
+============================================================ */
+
+.glass-card {
+  background:
+    linear-gradient(
+      145deg,
+      rgba(28, 19, 23, 0.96),
+      rgba(17, 11, 14, 0.96)
+    );
+
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+
+  box-shadow:
+    0 10px 35px rgba(0, 0, 0, 0.22);
+}
+
+
+/* ============================================================
+   CARD HOVER
+============================================================ */
+
+.glass-card-hover {
+  transition:
+    transform 300ms ease,
+    box-shadow 300ms ease,
+    border-color 300ms ease;
+}
+
+.glass-card-hover:hover {
+  transform: translateY(-5px);
+
+  box-shadow:
+    0 20px 55px rgba(0, 0, 0, 0.4),
+    0 0 30px rgba(255, 45, 32, 0.05);
+}
+
+
+/* ============================================================
+   RED GLOW
+============================================================ */
+
+.shadow-glow-red {
+  box-shadow:
+    0 0 25px rgba(255, 45, 32, 0.22),
+    0 8px 25px rgba(0, 0, 0, 0.35);
+}
+
+
+/* Existing class used by PandalCard */
+
+.shadow-glow-primary {
+  box-shadow:
+    0 0 20px rgba(255, 45, 32, 0.3);
+}
+
+
+/* ============================================================
+   FADE IN
+============================================================ */
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-6px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fadeIn {
+  animation: fadeIn 220ms ease-out both;
+}
+
+
+/* ============================================================
+   FADE UP
+============================================================ */
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(15px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fadeUp {
+  animation: fadeUp 450ms ease-out both;
+}
+
+
+/* ============================================================
+   PULSE GLOW
+============================================================ */
+
+@keyframes pulseGlow {
+  0%,
+  100% {
+    box-shadow:
+      0 0 0 rgba(255, 45, 32, 0);
+  }
+
+  50% {
+    box-shadow:
+      0 0 20px rgba(255, 45, 32, 0.18);
+  }
+}
+
+.animate-pulse-glow {
+  animation: pulseGlow 2.5s ease-in-out infinite;
+}
+
+
+/* ============================================================
+   IMAGE LOADING
+============================================================ */
+
+img {
+  max-width: 100%;
+}
+
+img[loading="lazy"] {
+  background: #100b0d;
+}
+
+
+/* ============================================================
+   BUTTON RESET
+============================================================ */
+
+button {
+  font-family: inherit;
+}
+
+button:focus-visible {
+  outline: 2px solid rgba(255, 45, 32, 0.8);
+  outline-offset: 2px;
+}
+
+
+/* ============================================================
+   INPUT
+============================================================ */
+
+input::placeholder {
+  color: #686064;
+  opacity: 1;
+}
+
+input:focus {
+  outline: none;
+}
+
+
+/* ============================================================
+   SELECT
+============================================================ */
+
+select {
+  color-scheme: dark;
+}
+
+select option {
+  background: #171014;
+  color: white;
+}
+
+
+/* ============================================================
+   LINKS
+============================================================ */
+
+a {
+  color: inherit;
+}
+
+
+/* ============================================================
+   BENGALI FONT SUPPORT
+============================================================ */
+
+.font-bengali {
+  font-family:
+    "Noto Sans Bengali",
+    "Nirmala UI",
+    sans-serif;
+}
+
+
+/* ============================================================
+   SERIF / PUJO HEADINGS
+============================================================ */
+
+.font-serif {
+  font-family:
+    Georgia,
+    "Times New Roman",
+    serif;
+}
+
+
+/* ============================================================
+   MOBILE
+============================================================ */
+
+@media (max-width: 768px) {
+  body {
+    overflow-x: hidden;
+  }
+
+  .glass-card-hover:hover {
+    transform: none;
+  }
+}
+
+
+/* ============================================================
+   SMALL MOBILE
+============================================================ */
+
+@media (max-width: 480px) {
+  ::-webkit-scrollbar {
+    width: 4px;
+    height: 4px;
+  }
+}
+
+
+/* ============================================================
+   REDUCED MOTION
+============================================================ */
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
